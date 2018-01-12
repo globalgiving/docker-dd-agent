@@ -66,11 +66,11 @@ If you are running docker swarm, add this to your `docker service create` comman
 --container-label com.datadoghq.ad.check_names='["docker_varnish"]' --container-label com.datadoghq.ad.init_configs='[{}]' --container-label com.datadoghq.ad.instances='[{"varnishstat":"/usr/bin/varnishstat","container-name":"%%container-name%%"}]'
 ```
 
-# Other Configuration
+## Other Configuration
 
 Basically everything you can do with the normal Datadog Docker Agent, you can do with this.  So see their documentation: https://hub.docker.com/r/datadog/docker-dd-agent/
 
-# Security Implications?
+## Security Implications?
 
 If you look at how these checks work, they allow a command to be run in the container you want to monitor by using `docker exec`.  You may be wondering if this opens any security problems.
 
