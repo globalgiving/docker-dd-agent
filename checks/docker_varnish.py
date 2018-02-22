@@ -1,8 +1,7 @@
 import docker
 import sys
-sys.path.append('/opt/datadog-agent/agent/checks.d')
+sys.path.append('/opt/datadog-agent/embedded/lib/python2.7/site-packages/datadog_checks')
 import varnish
-import utils.subprocess_output
 from checks import AgentCheck
 
 class Notset:
@@ -28,7 +27,7 @@ class DockerVarnish(varnish.Varnish):
             eid = client.exec_create(instance.get('container-name'), command)
             output = client.exec_start(eid)
             return (output, "", 0)
-        oldval = patch(utils.subprocess_output, 'get_subprocess_output', get_docker_exec_output)
+        oldval = patch(varnish.varnish, 'get_subprocess_output', get_docker_exec_output)
         varnish.Varnish.check(self, instance)
-        patch(utils.subprocess_output, 'get_subprocess_output', oldval)
+        patch(varnish.varnish, 'get_subprocess_output', oldval)
 
