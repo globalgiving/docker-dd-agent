@@ -17,7 +17,7 @@ docker run -d --name dd-agent \
   -e API_KEY={your_api_key_here} \
   -e SD_BACKEND=docker \
   -e NON_LOCAL_TRAFFIC=false \
-  datadog/docker-dd-agent:latest
+  globalgiving/dd-agent:latest
 ```
 
 If you are using docker swarm:
@@ -32,7 +32,7 @@ docker service create \
   --publish 8125:8125/udp \
   -e API_KEY={your_api_key_here} \
   -e SD_BACKEND=docker \
-  datadog/docker-dd-agent:latest
+  globalgiving/dd-agent:latest
 ```
 
 If you are running on Amazon Linux, use the following instead:
@@ -45,7 +45,7 @@ docker run -d --name dd-agent \
   -e API_KEY={your_api_key_here} \
   -e SD_BACKEND=docker \
   -e NON_LOCAL_TRAFFIC=false \
-  datadog/docker-dd-agent:latest
+  globalgiving/dd-agent:latest
 ```
 
 ## Enabling Checks
